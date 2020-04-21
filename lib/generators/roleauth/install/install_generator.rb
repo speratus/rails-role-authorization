@@ -20,6 +20,10 @@ module RoleAuthorization
             def generate_parent_migration
                 generate "migration", "RoleAuthorization::Parent object_id:integer model_name"
             end
+
+            def generate_model_parent_migration
+                generate "migration", "RoleAuthorization::ModelParent model_id:integer model_type parent:references"
+            end
         end
     end
 end
