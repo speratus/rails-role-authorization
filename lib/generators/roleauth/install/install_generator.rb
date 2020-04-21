@@ -16,6 +16,10 @@ module RoleAuthorization
             def generate_scope_migration
                 generate "migration", "RoleAuthorization::Scope name model_name"
             end
+            
+            def generate_parent_migration
+                generate "migration", "RoleAuthorization::Parent object_id:integer model_name"
+            end
         end
     end
 end
