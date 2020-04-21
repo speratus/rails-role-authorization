@@ -24,6 +24,10 @@ module RoleAuthorization
             def generate_model_parent_migration
                 generate "migration", "RoleAuthorization::ModelParent model_id:integer model_type parent:references"
             end
+
+            def migrate
+                rake "db:migrate"
+            end
         end
     end
 end
