@@ -12,6 +12,10 @@ module RoleAuthorization
             def generate_role_perm_migration
                 generate "migration", "RoleAuthorization::RolePermission permission:references role:references"
             end
+
+            def generate_scope_migration
+                generate "migration", "RoleAuthorization::Scope name model_name"
+            end
         end
     end
 end
