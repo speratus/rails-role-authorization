@@ -5,7 +5,7 @@ module RoleAuthorization
                 generate "migration", "RoleAuthorization::Permission name model_name"
             end
 
-            def generate_role_mgration
+            def generate_role_migration
                 generate "migration", "RoleAuthorization::Role name scope_name"
             end
 
