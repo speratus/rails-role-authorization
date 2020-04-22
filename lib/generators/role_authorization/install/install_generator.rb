@@ -10,7 +10,7 @@ module RoleAuthorization
             end
 
             def generate_role_perm_migration
-                generate "migration", "CreateRoleAuthRolePermission permission:references role:references"
+                generate "migration", "CreateRoleAuthRolePermission permission:references role_auth_role:references"
             end
 
             def generate_scope_migration
