@@ -2,7 +2,7 @@ module RoleAuthorization
     module Generators
         class InstallGenerator < Rails::Generators::Base
             def generate_permission_migration
-                generate "migration", "CreatePermission roleauth_permissions name model_name"
+                generate "migration", "CreateRoleAuthPermissions name model_name"
             end
 
             def generate_role_migration
