@@ -6,23 +6,23 @@ module RoleAuthorization
             end
 
             def generate_role_migration
-                generate "migration", "RoleAuthorization::Role name scope_name"
+                generate "migration", "CreateRoleAuthRoles name scope_name"
             end
 
             def generate_role_perm_migration
-                generate "migration", "RoleAuthorization::RolePermission permission:references role:references"
+                generate "migration", "CreateRoleAuthRolePermission permission:references role:references"
             end
 
             def generate_scope_migration
-                generate "migration", "RoleAuthorization::Scope name model_name"
+                generate "migration", "CreateRoleAuthScope name model_name"
             end
             
             def generate_parent_migration
-                generate "migration", "RoleAuthorization::Parent object_id:integer model_name"
+                generate "migration", "CreateRoleAuthParent object_id:integer model_name"
             end
 
             def generate_model_parent_migration
-                generate "migration", "RoleAuthorization::ModelParent model_id:integer model_type parent:references"
+                generate "migration", "CreateRoleAuthModelParent model_id:integer model_type parent:references"
             end
 
             def migrate
