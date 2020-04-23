@@ -6,7 +6,7 @@ module RoleAuthorization
             end
 
             def generate_role_migration
-                generate "migration", "CreateRoleAuthRoles name scope_name"
+                generate "migration", "CreateRoleAuthRoles name role_auth_group:references"
             end
 
             def generate_role_perm_migration
