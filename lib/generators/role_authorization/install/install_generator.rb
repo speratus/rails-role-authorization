@@ -13,16 +13,11 @@ module RoleAuthorization
                 generate "migration", "CreateRoleAuthRolePermission permission:references role_auth_role:references"
             end
 
-            def generate_scope_migration
-                generate "migration", "CreateRoleAuthScope name model_name"
+            def generate_group_migration
+                generate "migration", "CreateRoleAuthGroup name model_name"
             end
-            
-            def generate_parent_migration
-                generate "migration", "CreateRoleAuthParent object_id:integer model_name"
-            end
-
-            def generate_model_parent_migration
-                generate "migration", "CreateRoleAuthModelParent model_id:integer model_type parent:references"
+            def generate_record_group_migration
+                generate "migration", "CreateRoleAuthModelGroup record:references{polymorphic} role_auth_group:references"
             end
 
             def migrate
