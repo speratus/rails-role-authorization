@@ -1,7 +1,7 @@
 module RoleAuthorization
     module Models
-        class RoleAuthorization::Permission < RoleAuthorization::Models::Base
-        
+        class Permission < Base
+            validates :name, :model_name, presence: true
         end
     end
 end
