@@ -12,5 +12,9 @@ module RoleAuthorization::Authorizable
                 Permission.find_or_create_by(name: p, model_name: base.to_s)
             end
         end
+
+        def base.define_group(name)
+            Group.find_or_create_by(name: name, model_name: base.to_s)
+        end
     end
 end
