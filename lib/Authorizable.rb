@@ -21,8 +21,11 @@ module RoleAuthorization::Authorizable
             @user = user
         end
 
-        def authorized?(user)
-            
+        def authorized?(user, permission)
+            group = self.group
+            all_roles = Role.joins(:permissions).where(permission: {name: permission})
+            valid_roles = all_roles.where(group: group)
+            # Check whether user is a member of any of the roles in valid_roles
         end
     end
 end
