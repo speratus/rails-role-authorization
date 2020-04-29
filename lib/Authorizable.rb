@@ -20,5 +20,9 @@ module RoleAuthorization::Authorizable
         def authorize_with(user)
             @user = user
         end
+
+        def authorized?(user)
+            
+        end
     end
 end
