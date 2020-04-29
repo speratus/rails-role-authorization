@@ -3,9 +3,9 @@ include RoleAuthorization::Models
 module RoleAuthorization::Authorizable
     def self.included(base)
         base&.has_one :model_group, as: :record
-        base&.has_one :group, through: :model_group
+        base&.has_one :scope, through: :model_group
 
-        base&.validates :group, presence: true
+        base&.validates :scope, presence: true
 
         def base.define_permission(*args)
             args.each do |p|
@@ -22,9 +22,9 @@ module RoleAuthorization::Authorizable
         end
 
         def authorized?(user, permission)
-            group = self.group
+            scope = self.scope
             all_roles = Role.joins(:permissions).where(permission: {name: permission})
-            valid_roles = all_roles.where(group: group)
+            valid_roles = all_roles.where(scope: scope)
             # Check whether user is a member of any of the roles in valid_roles
         end
     end
