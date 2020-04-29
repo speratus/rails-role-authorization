@@ -16,5 +16,9 @@ module RoleAuthorization::Authorizable
         def base.define_group(name)
             Group.find_or_create_by(name: name, model_name: base.to_s)
         end
+
+        def authorize_with(user)
+            @user = user
+        end
     end
 end
