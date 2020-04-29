@@ -25,7 +25,8 @@ module RoleAuthorization::Authorizable
             scope = self.scope
             all_roles = Role.joins(:permissions).where(permission: {name: permission})
             valid_roles = all_roles.where(scope: scope)
-            # Check whether user is a member of any of the roles in valid_roles
+            members = valid_roles.joins(:members)
+            members.include?(user)
         end
     end
 end
