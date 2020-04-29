@@ -1,10 +1,10 @@
 module RoleAuthorization
     module Models
-        class ModelGroup < Base
-            validates :group, :record, presence: true
+        class ModelScope < Base
+            validates :scope, :record, presence: true
 
             belongs_to :record, polymorphic: true
-            belongs_to :group
+            belongs_to :scope
         end
     end
 end
