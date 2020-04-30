@@ -28,5 +28,32 @@ module RoleAuthorization::Authorizable
             members = valid_roles.joins(:members)
             members.include?(user)
         end
+
+        def base.authorize_action(**action)
+            actions = [:create, :update, :destroy]
+            action.each_key do |key|
+                if actions.include?(key)
+                    method_name = "authorize_#{key.to_s}"
+                    create_authorize_method(method_name, @user, action[key])
+
+                    base.send("before_#{key}".to_sym, method_name.to_sym)
+                elsif key == :read
+                    method_name = :authorize_find
+                    create_authorize_method(method_name, @user, action[key])
+
+                    base.send(:after_find, method_name.to_sym)
+                end
+            end
+        end
+
+        private
+
+        def create_authorize_method(method_name, user, permission)
+            base.define_method(method_name) do 
+                unless authorized?(@user, permission)
+                    raise UnauthorizedError.new("#{@user} does not have permission #{permission} for #{base}.")
+                end
+            end
+        end
     end
 end
