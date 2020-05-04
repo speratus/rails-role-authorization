@@ -19,5 +19,9 @@ RSpec.describe "general tests" do
         it "has a Scope model" do
             expect(RoleAuthorization::Models::Scope).to be_a(Class)
         end
+
+        it "has a ModelScope model" do
+            expect(RoleAuthorization::Models::ModelScope).to be_a(Class)
+        end
     end
 end
