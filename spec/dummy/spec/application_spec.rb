@@ -27,5 +27,9 @@ RSpec.describe "general tests" do
         it "has a RoleMember model" do
             expect(RoleAuthorization::Models::RoleMember).to be_a(Class)
         end
+        
+        it 'has a RolePermission model' do
+            expect(RoleAuthorization::Models::RolePermission).to be_a(Class)
+        end
     end
 end
