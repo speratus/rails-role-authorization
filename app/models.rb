@@ -1,4 +1,4 @@
-Dir[File.join(__dir__, 'models', '*.rb')].each {|file| require file}
+Dir[File.join(__dir__, 'models', '*.rb')].sort.each {|file| require file}
 
 module RoleAuthorization
     module Models
