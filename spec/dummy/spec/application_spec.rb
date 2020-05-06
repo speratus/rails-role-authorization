@@ -36,7 +36,7 @@ RSpec.describe "general tests" do
     context 'extended models can be saved' do
         
         it 'can create a Permission' do
-            perm = RoleAuthorization::Models::Permission.new(name: "name", model_name: "Demo")
+            perm = RoleAuthorization::Models::Permission.new(name: "name", record_name: "Demo")
             expect(perm.save).not_to raise_error(ActiveRecord::ActiveRecordError)
         end
     end
