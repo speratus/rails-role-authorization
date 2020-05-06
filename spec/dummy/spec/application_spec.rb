@@ -37,7 +37,7 @@ RSpec.describe "general tests" do
         
         it 'can create a Permission' do
             perm = RoleAuthorization::Models::Permission.new(name: "name", record_name: "Demo")
-            expect(perm.save).not_to raise_error(ActiveRecord::ActiveRecordError)
+            expect{ perm.save }.not_to raise_error
         end
     end
 end
