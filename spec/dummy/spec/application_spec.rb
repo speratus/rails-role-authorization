@@ -46,5 +46,11 @@ RSpec.describe "general tests" do
             scope = Scope.new(name: 'test')
             expect {scope.save}.not_to raise_error
         end
+
+        it 'can create a role' do
+            scope = Scope.create(name: 'test')
+            role = Role.new(name: 'demo', scope: scope)
+            expect {role.save}.not_to raise_error
+        end
     end
 end
