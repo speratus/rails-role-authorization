@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_210824) do
-
-  create_table "role_auth_model_scopes", force: :cascade do |t|
-    t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "role_auth_scope_id", null: false
-    t.index ["record_type", "record_id"], name: "index_role_auth_model_scopes_on_record_type_and_record_id"
-    t.index ["role_auth_scope_id"], name: "index_role_auth_model_scopes_on_role_auth_scope_id"
-  end
+ActiveRecord::Schema.define(version: 2020_05_06_202819) do
 
   create_table "role_auth_permissions", force: :cascade do |t|
     t.string "name"
-    t.string "model_name"
+    t.string "record_name"
+  end
+
+  create_table "role_auth_record_scopes", force: :cascade do |t|
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "role_auth_scope_id", null: false
+    t.index ["record_type", "record_id"], name: "index_role_auth_record_scopes_on_record_type_and_record_id"
+    t.index ["role_auth_scope_id"], name: "index_role_auth_record_scopes_on_role_auth_scope_id"
   end
 
   create_table "role_auth_role_members", force: :cascade do |t|
@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 2020_05_02_210824) do
 
   create_table "role_auth_scopes", force: :cascade do |t|
     t.string "name"
-    t.string "model_name"
+    t.string "record_name"
     t.index ["name"], name: "index_role_auth_scopes_on_name", unique: true
   end
 
-  add_foreign_key "role_auth_model_scopes", "role_auth_scopes"
+  add_foreign_key "role_auth_record_scopes", "role_auth_scopes"
   add_foreign_key "role_auth_role_members", "members"
   add_foreign_key "role_auth_role_members", "role_auth_roles"
   add_foreign_key "role_auth_role_permissions", "permissions"
