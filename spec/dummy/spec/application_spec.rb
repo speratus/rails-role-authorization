@@ -41,5 +41,10 @@ RSpec.describe "general tests" do
             perm = Permission.new(name: "name", record_name: "Demo")
             expect{ perm.save }.not_to raise_error
         end
+
+        it 'can create a Scope' do
+            scope = Scope.new(name: 'test')
+            expect {scope.save}.not_to raise_error
+        end
     end
 end
