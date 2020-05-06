@@ -3,6 +3,6 @@ require_relative '../app/models'
 
 module RoleAuthorization
     def self.table_name_prefix
-        'roleauth_'
+        'role_auth_'
     end
 end
