@@ -1,6 +1,6 @@
 module RoleAuthorization
     module Models
-        class ModelScope < Base
+        class ModelScope < ActiveRecord::Base
             validates :scope, :record, presence: true
 
             belongs_to :record, polymorphic: true

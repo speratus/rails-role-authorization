@@ -1,6 +1,6 @@
 module RoleAuthorization
     module Models
-        class RoleMember < Base
+        class RoleMember < ActiveRecord::Base
             validates :role, :member, presence: true
 
             belongs_to :role

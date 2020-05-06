@@ -1,6 +1,6 @@
 module RoleAuthorization
     module Models
-        class Role < Base
+        class Role < ActiveRecord::Base
             validates :name, :group, presence: true
 
             has_many :role_permissions
